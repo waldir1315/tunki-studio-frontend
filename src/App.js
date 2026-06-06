@@ -5,15 +5,15 @@ import ImageGen from './pages/ImageGen';
 import './styles/globals.css';
 
 export const EPISODES = [
-  { id: 'EP01', title: 'El Día que Pipo no Quería Preguntar', emotion: 'Vergüenza / Curiosidad', lead: 'Pipo', emoji: '🐥', avatar: '/personajes/pipo.png' },
-  { id: 'EP02', title: 'Luna y el Nudo en la Panza', emotion: 'Ansiedad anticipatoria', lead: 'Luna', emoji: '🐱', avatar: '/personajes/luna.png' },
-  { id: 'EP03', title: 'Dino no Puede', emotion: 'Frustración / Autoeficacia', lead: 'Dino', emoji: '🦖', avatar: '/personajes/dino.png' },
-  { id: 'EP04', title: 'El Secreto de Nubi', emotion: 'Soledad / Pertenencia', lead: 'Nubi', emoji: '🐶', avatar: '/personajes/nubi.png' },
-  { id: 'EP05', title: 'Miel y las Mil Ideas', emotion: 'Abrumamiento / Enfoque', lead: 'Miel', emoji: '🐝', avatar: '/personajes/miel.png' },
+  { id: 'EP01', title: 'El Día que Pipo no Quería Preguntar', emotion: 'Vergüenza / Curiosidad', lead: 'Pipo', emoji: '🐥', avatar: '/Personajes/Pipo.PNG' },
+  { id: 'EP02', title: 'Luna y el Nudo en la Panza', emotion: 'Ansiedad anticipatoria', lead: 'Luna', emoji: '🐱', avatar: '/Personajes/Luna.PNG' },
+  { id: 'EP03', title: 'Dino no Puede', emotion: 'Frustración / Autoeficacia', lead: 'Dino', emoji: '🦖', avatar: '/Personajes/Dino.PNG' },
+  { id: 'EP04', title: 'El Secreto de Nubi', emotion: 'Soledad / Pertenencia', lead: 'Nubi', emoji: '🐶', avatar: '/Personajes/Nubi.PNG' },
+  { id: 'EP05', title: 'Miel y las Mil Ideas', emotion: 'Abrumamiento / Enfoque', lead: 'Miel', emoji: '🐝', avatar: '/Personajes/Miel.PNG' },
   { id: 'EP06', title: 'Cuando Todo Sale Mal', emotion: 'Decepción / Resiliencia', lead: 'Todos', emoji: '🌈', avatar: null },
   { id: 'EP07', title: '¿Quién Soy Yo?', emotion: 'Identidad / Autoestima', lead: 'Estrellita', emoji: '⭐', avatar: null },
-  { id: 'EP08', title: 'La Pelea', emotion: 'Conflicto / Reparación', lead: 'Luna + Dino', emoji: '💛', avatar: '/personajes/luna.png' },
-  { id: 'EP09', title: 'Miedo a la Oscuridad', emotion: 'Miedo / Valentía', lead: 'Pipo + Nubi', emoji: '🌙', avatar: '/personajes/pipo.png' },
+  { id: 'EP08', title: 'La Pelea', emotion: 'Conflicto / Reparación', lead: 'Luna + Dino', emoji: '💛', avatar: '/Personajes/Luna.PNG' },
+  { id: 'EP09', title: 'Miedo a la Oscuridad', emotion: 'Miedo / Valentía', lead: 'Pipo + Nubi', emoji: '🌙', avatar: '/Personajes/Pipo.PNG' },
   { id: 'EP10', title: 'Festival Tunki', emotion: 'Celebración / Integración', lead: 'Todos', emoji: '🎉', avatar: null },
 ];
 
@@ -51,7 +51,7 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header-brand">
-          <img src="/personajes/logo.png" alt="Tunki Tunes" className="header-logo" />
+          <img src="/Personajes/Logo.PNG" alt="Tunki Tunes" className="header-logo" />
           <div className="header-sub">Estudio de Producción · T1 "Crecemos Juntos"</div>
         </div>
         <nav className="header-nav">

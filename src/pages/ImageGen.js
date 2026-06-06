@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const CHARACTERS = [
-  { id: 'luna', name: 'Luna', emoji: '🐱', color: '#FF9EC4', avatar: '/personajes/luna.png' },
-  { id: 'dino', name: 'Dino', emoji: '🦖', color: '#7BC67E', avatar: '/personajes/dino.png' },
-  { id: 'pipo', name: 'Pipo', emoji: '🐥', color: '#FFD93D', avatar: '/personajes/pipo.png' },
-  { id: 'nubi', name: 'Nubi', emoji: '🐶', color: '#9B7FD4', avatar: '/personajes/nubi.png' },
-  { id: 'miel', name: 'Miel', emoji: '🐝', color: '#FFD700', avatar: '/personajes/miel.png' },
+  { id: 'luna', name: 'Luna', emoji: '🐱', color: '#FF9EC4', avatar: '/Personajes/Luna.PNG' },
+  { id: 'dino', name: 'Dino', emoji: '🦖', color: '#7BC67E', avatar: '/Personajes/Dino.PNG' },
+  { id: 'pipo', name: 'Pipo', emoji: '🐥', color: '#FFD93D', avatar: '/Personajes/Pipo.PNG' },
+  { id: 'nubi', name: 'Nubi', emoji: '🐶', color: '#9B7FD4', avatar: '/Personajes/Nubi.PNG' },
+  { id: 'miel', name: 'Miel', emoji: '🐝', color: '#FFD700', avatar: '/Personajes/Miel.PNG' },
   { id: 'estrellita', name: 'Estrellita', emoji: '⭐', color: '#FFF176', avatar: null },
 ];
 
