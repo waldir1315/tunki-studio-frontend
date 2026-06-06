@@ -1,0 +1,437 @@
+.studio {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Controls panel ── */
+.controls {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.section {}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.epSelect {
+  width: 100%;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 10px 12px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.epSelect:focus {
+  border-color: var(--accent);
+}
+
+.depGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.depBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.depBtn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--dep-color, var(--accent));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.depBtn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border-active);
+}
+
+.depBtn:hover::before, .depActive::before {
+  opacity: 1;
+}
+
+.depActive {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+
+.depBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.depIcon { font-size: 1rem; flex-shrink: 0; }
+.depLabel { flex: 1; font-weight: 500; }
+
+.depSpinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.suggestion {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition);
+  line-height: 1.4;
+}
+
+.suggestion:hover {
+  background: var(--accent-dim);
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+/* ── Chat panel ── */
+.chatPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+  flex-shrink: 0;
+}
+
+.chatEpBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.chatEpBadge span:first-child {
+  font-size: 1.2rem;
+}
+
+.chatEpBadge span:nth-child(2) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--tunki-pink);
+  background: var(--accent-dim);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.chatEpTitle {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.clearBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+
+.clearBtn:hover {
+  border-color: var(--border-active);
+  color: var(--text-secondary);
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+  text-align: center;
+  padding: 60px 40px;
+  animation: fadeUp 0.5s ease;
+}
+
+.emptyIcon { font-size: 3rem; }
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, var(--tunki-pink), var(--tunki-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.emptyText {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Messages */
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeUp 0.3s ease;
+}
+
+.user {
+  align-items: flex-end;
+}
+
+.assistant {
+  align-items: flex-start;
+}
+
+.msgHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.msgAvatar {
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.msgName {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.msgDep {
+  color: var(--tunki-pink);
+  font-weight: 600;
+}
+
+.copyBtn {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+
+.copyBtn:hover {
+  border-color: var(--accent);
+  color: var(--tunki-pink);
+}
+
+.msgContent {
+  max-width: 90%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.user .msgContent {
+  background: var(--accent-dim);
+  border: 1px solid rgba(255,126,179,0.2);
+  color: var(--text-primary);
+  border-bottom-right-radius: 4px;
+}
+
+.assistant .msgContent {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-bottom-left-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Thinking dots */
+.thinking {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  border-bottom-left-radius: 4px;
+}
+
+.thinking span {
+  width: 6px;
+  height: 6px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.thinking span:nth-child(2) { animation-delay: 0.2s; }
+.thinking span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Input */
+.inputArea {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+  max-height: 200px;
+  transition: border-color var(--transition);
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.sendBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.sendBtn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.sendBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.sendSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}

@@ -1,0 +1,133 @@
+:root {
+  /* Colores base — dark studio */
+  --bg-deep: #070710;
+  --bg-base: #0d0d1a;
+  --bg-card: #12121f;
+  --bg-card-hover: #1a1a2e;
+  --bg-glass: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.07);
+  --border-active: rgba(255,255,255,0.15);
+
+  /* Tunki brand */
+  --tunki-pink: #ff7eb3;
+  --tunki-green: #7edca0;
+  --tunki-blue: #7eb8ff;
+  --tunki-teal: #7edfdf;
+  --tunki-yellow: #ffe07e;
+  --tunki-purple: #b47eff;
+  --tunki-star: #ffd700;
+
+  /* Accent principal */
+  --accent: #ff7eb3;
+  --accent-dim: rgba(255, 126, 179, 0.15);
+  --accent-glow: rgba(255, 126, 179, 0.4);
+
+  /* Texto */
+  --text-primary: #f0f0f8;
+  --text-secondary: #8888aa;
+  --text-muted: #44445a;
+
+  /* Tipografía */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Transiciones */
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-active); border-radius: 2px; }
+
+/* Selección */
+::selection { background: var(--accent-dim); color: var(--text-primary); }
+
+/* Markdown output en el chat */
+.markdown-output h1, .markdown-output h2, .markdown-output h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 1.2em 0 0.5em;
+  color: var(--text-primary);
+}
+.markdown-output h1 { font-size: 1.4rem; }
+.markdown-output h2 { font-size: 1.2rem; color: var(--tunki-pink); }
+.markdown-output h3 { font-size: 1rem; color: var(--tunki-blue); }
+.markdown-output p { margin-bottom: 0.8em; color: var(--text-secondary); }
+.markdown-output ul, .markdown-output ol { margin: 0.5em 0 0.8em 1.4em; }
+.markdown-output li { color: var(--text-secondary); margin-bottom: 0.3em; }
+.markdown-output code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.5em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--tunki-yellow);
+}
+.markdown-output pre {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1em;
+  overflow-x: auto;
+  margin: 0.8em 0;
+}
+.markdown-output pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+.markdown-output strong { color: var(--text-primary); font-weight: 600; }
+.markdown-output em { color: var(--tunki-pink); }
+.markdown-output blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1em;
+  margin: 0.8em 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+.markdown-output hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.2em 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

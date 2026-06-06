@@ -1,0 +1,264 @@
+.pipeline {
+  padding: 32px;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+.loadingSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.globalProgress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.progressPct {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--tunki-pink);
+}
+
+.progressBar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--tunki-pink), var(--tunki-blue));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Grid de episodios */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.epCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color var(--transition), transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.epCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ep-color, var(--accent));
+  opacity: 0.6;
+}
+
+.epCard:hover {
+  border-color: var(--border-active);
+  transform: translateY(-1px);
+}
+
+.epCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.epMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.epEmoji { font-size: 1.5rem; }
+
+.epId {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ep-color, var(--accent));
+}
+
+.epEmocion {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.epEstado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.estadoDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.estadoSelect {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.epTitulo {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.epProgress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.epProgressLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.epProgressBar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.epProgressFill {
+  height: 100%;
+  background: var(--ep-color, var(--accent));
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  opacity: 0.8;
+}
+
+.fases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.faseBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 4px;
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-muted);
+}
+
+.faseBtn:hover {
+  border-color: var(--border-active);
+  color: var(--text-secondary);
+  background: var(--bg-card-hover);
+}
+
+.faseOk {
+  background: rgba(126, 220, 160, 0.1) !important;
+  border-color: rgba(126, 220, 160, 0.3) !important;
+  color: var(--tunki-green) !important;
+}
+
+.faseIcon { font-size: 0.85rem; }
+.faseLabel { font-size: 0.6rem; font-family: var(--font-display); font-weight: 600; letter-spacing: 0.04em; }
+
+.irEstudio {
+  margin-top: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.irEstudio:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--tunki-pink);
+}
