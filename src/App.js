@@ -31,15 +31,6 @@ export default function App() {
   const [view, setView] = useState('pipeline');
   const [selectedEpisode, setSelectedEpisode] = useState(null);
   const [selectedDept, setSelectedDept] = useState(null);
-  const [episodeStates, setEpisodeStates] = useState(() => {
-    try { const s = localStorage.getItem('tunki-pipeline'); return s ? JSON.parse(s) : {}; } catch { return {}; }
-  });
-
-  const updateEpisodeState = (epId, phase, value) => {
-    const updated = { ...episodeStates, [epId]: { ...episodeStates[epId], [phase]: value } };
-    setEpisodeStates(updated);
-    try { localStorage.setItem('tunki-pipeline', JSON.stringify(updated)); } catch {}
-  };
 
   const openStudio = (episode, department) => {
     setSelectedEpisode(episode);
@@ -51,7 +42,7 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header-brand">
-          <img src="/Personajes/Logo.PNG" alt="Tunki Tunes" className="header-logo" />
+          <img src="/Personajes/Logo.PNG" alt="Tunki Tunes" className="header-logo" onError={e => e.target.style.display='none'} />
           <div className="header-sub">Estudio de Producción · T1 "Crecemos Juntos"</div>
         </div>
         <nav className="header-nav">
@@ -61,7 +52,7 @@ export default function App() {
         </nav>
       </header>
 
-      {view === 'pipeline' && <Pipeline episodes={EPISODES} departments={DEPARTMENTS} episodeStates={episodeStates} updateEpisodeState={updateEpisodeState} onOpenStudio={openStudio} />}
+      {view === 'pipeline' && <Pipeline episodes={EPISODES} departments={DEPARTMENTS} onOpenStudio={openStudio} />}
       {view === 'studio' && <Studio episodes={EPISODES} departments={DEPARTMENTS} selectedEpisode={selectedEpisode} selectedDept={selectedDept} setSelectedEpisode={setSelectedEpisode} setSelectedDept={setSelectedDept} onBack={() => setView('pipeline')} />}
       {view === 'imagegen' && <ImageGen />}
     </div>
